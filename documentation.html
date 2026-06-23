@@ -35,7 +35,7 @@
     }
 
     .doc-sidebar {
-      width: 280px;
+      width: 300px;
       flex-shrink: 0;
       position: sticky;
       top: 100px;
@@ -77,6 +77,7 @@
       font-weight: 500;
       transition: all 0.2s ease;
       border-left: 3px solid transparent;
+      white-space: nowrap; /* Prevent sidebar link text from breaking to next line */
     }
 
     .doc-sidebar-link:hover {
