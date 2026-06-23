@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documentation | LumiPhone</title>
-  <meta name="description" content="LumiPhone & SIP Device Configuration Guide. Learn how to create a SIP account, configure the LumiPhone mobile app, setup third-party SIP clients or devices, and configure ring groups.">
+  <meta name="description" content="LumiPhone & SIP Device Configuration Guide. Learn how to create a SIP account, configure the LumiPhone mobile app, setup third-party SIP clients or devices, and configure SIP destinations.">
   <link rel="stylesheet" href="style.css">
   <!-- Load Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -469,7 +469,7 @@
         <li><a href="#creating-sip-account" class="doc-sidebar-link active">1. Creating a SIP Account</a></li>
         <li><a href="#configuring-lumiphone" class="doc-sidebar-link">2. Configuring LumiPhone</a></li>
         <li><a href="#configuring-third-party" class="doc-sidebar-link">3. Third-Party SIP Clients</a></li>
-        <li><a href="#ring-group-configuration" class="doc-sidebar-link">4. Ring Group Configuration</a></li>
+        <li><a href="#sip-configuration" class="doc-sidebar-link">4. SIP Destination Format</a></li>
         <li><a href="#summary" class="doc-sidebar-link">Summary</a></li>
       </ul>
     </aside>
@@ -494,7 +494,12 @@
           </li>
         </ol>
 
-        <h3>Sample SIP Accounts</h3>
+        <h3>Example SIP Accounts</h3>
+        <p>Create SIP accounts as needed. For example, you can create:</p>
+        <ul>
+          <li>1 account for a mobile app and 1 account for a SIP device.</li>
+          <li>2 accounts for SIP devices and 1 account for a mobile app, or vice versa.</li>
+        </ul>
         <div class="table-container">
           <table>
             <thead>
@@ -664,15 +669,10 @@
       </section>
 
       <!-- Section 4 -->
-      <section id="ring-group-configuration" class="doc-section">
-        <h2>4. Ring Group Configuration</h2>
+      <section id="sip-configuration" class="doc-section">
+        <h2>4. SIP Destination Format</h2>
         
-        <h3>SIP Devices with a Single Call Button</h3>
-        <p>If the SIP device contains only a single ring/call button:</p>
-        <ol>
-          <li>Open the Ring Group configuration.</li>
-          <li>Add the SIP address you want the device to call.</li>
-        </ol>
+        <p>In your SIP configuration, make sure you have the SIP address where you want to ring.</p>
 
         <h3>Example</h3>
         <div class="table-container">
@@ -691,70 +691,6 @@
         </div>
 
         <p>When the button is pressed, the call will be routed to the configured SIP account.</p>
-
-        <hr style="margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border-color);">
-
-        <h3>SIP Phones with Dial Pad</h3>
-        <p>For SIP phones that include a dial pad:</p>
-        <ol>
-          <li>Assign room numbers within the Ring Group configuration.</li>
-          <li>Map each room number to the corresponding SIP account.</li>
-          <li>Users can dial the room number directly to connect to another SIP device.</li>
-        </ol>
-
-        <h3>Room Mapping Example</h3>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th style="text-align: center;">Room Number</th>
-                <th>SIP Destination</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="text-align: center;">101</td>
-                <td>sip:User01@sip.lumiphone.in:5070</td>
-              </tr>
-              <tr>
-                <td style="text-align: center;">102</td>
-                <td>sip:User02@sip.lumiphone.in:5070</td>
-              </tr>
-              <tr>
-                <td style="text-align: center;">103</td>
-                <td>sip:User03@sip.lumiphone.in:5070</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Example Call Flow</h3>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th style="text-align: center;">Dialed Number</th>
-                <th>Connected SIP Destination</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="text-align: center;">101</td>
-                <td>sip:User01@sip.lumiphone.in:5070</td>
-              </tr>
-              <tr>
-                <td style="text-align: center;">102</td>
-                <td>sip:User02@sip.lumiphone.in:5070</td>
-              </tr>
-              <tr>
-                <td style="text-align: center;">103</td>
-                <td>sip:User03@sip.lumiphone.in:5070</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Dialing room number <strong>101</strong> will connect the call to <strong>sip:User01@sip.lumiphone.in:5070</strong>.</p>
       </section>
 
       <!-- Summary Section -->
@@ -790,7 +726,7 @@
                 <td>Use Port 5070</td>
               </tr>
               <tr>
-                <td>Ring Group Format</td>
+                <td>SIP Destination Format</td>
                 <td>sip:username@sip.lumiphone.in:5070</td>
               </tr>
             </tbody>
