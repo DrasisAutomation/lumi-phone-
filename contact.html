@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | LumiPhone</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Load Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .contact-wrapper {
+      max-width: 900px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .contact-form-section {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-info-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      width: 100%;
+    }
+    .contact-form {
+      background: white;
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-color);
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .office-card {
+      background: #f8fafc;
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .office-card h3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      width: 100%;
+    }
+    .office-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .office-card p span {
+      display: block;
+    }
+    .office-card i {
+      color: var(--primary-blue);
+    }
+    @media (max-width: 768px) {
+      .contact-form {
+        padding: 1.5rem;
+      }
+      .office-card {
+        padding: 1.5rem;
+        min-width: 100%;
+      }
+      .contact-wrapper {
+        margin-top: 1.5rem;
+        gap: 1.5rem;
+      }
+      .contact-info-section {
+        gap: 1.5rem;
+      }
+      .contact-hero-title {
+        font-size: 2.25rem !important;
+      }
+      .contact-hero-desc {
+        font-size: 1rem !important;
+      }
+      .contact-section {
+        padding-top: 7rem !important;
+        padding-bottom: 2rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container flex justify-between items-center relative">
+      <div class="flex items-center gap-2">
+        <a href="index.html" style="display: flex; align-items: center;">
+          <img src="https://lumielectronics.com/wp-content/uploads/2025/09/logo-06-removebg-preview-removebg-preview.png" alt="LumiPhone" style="height: 40px; width: auto; object-fit: contain;">
+        </a>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i data-lucide="menu" id="menu-icon"></i>
+      </button>
+
+      <!-- Nav Links -->
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#features" class="nav-link">Features</a>
+        <a href="index.html#smart-home" class="nav-link">Smart Home</a>
+        <a href="documentation.html" class="nav-link">Documentation</a>
+        <a href="contact.html" class="nav-link active" style="color: var(--primary-blue); font-weight: 600;">Contact</a>
+        <a href="https://account.lumiphone.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">
+          Create Account
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Hero Section -->
+  <section class="section contact-section" style="padding-top: 8rem; padding-bottom: 4rem; background: var(--bg-color);">
+    <div class="container">
+      <div class="text-center animate-fade-in-up" style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <h1 class="contact-hero-title" style="margin-bottom: 1rem; font-size: 3rem;">Get in <span class="text-gradient">Touch</span></h1>
+        <p class="text-secondary contact-hero-desc" style="font-size: 1.25rem;">
+          Have questions about LumiPhone or our smart home integrations? We're here to help. Reach out to our global offices.
+        </p>
+      </div>
+
+      <div class="contact-wrapper animate-fade-in-up delay-100">
+        
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+          <form action="https://formsubmit.co/info@lumielectronics.com" method="POST" class="contact-form">
+            <h2 style="margin-bottom: 2rem; font-size: 1.5rem;">Send us a message</h2>
+            
+            <!-- Optional: FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Contact Form Submission from LumiPhone Website">
+            <input type="hidden" name="_template" value="table">
+            
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" required placeholder="How can we help?">
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" class="form-control" required placeholder="Your message here..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1.125rem; padding: 1rem;">
+              Send Message <i data-lucide="send" style="width: 20px; height: 20px; margin-left: 8px;"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info-section">
+          <div class="office-card">
+            <h3><i data-lucide="map-pin"></i> Germany Office</h3>
+            <p><i data-lucide="building-2"></i> <span>Grenzhofer Weg 28-3, 69123 Heidelberg, Baden-Württemberg, Germany</span></p>
+          </div>
+
+          <div class="office-card">
+            <h3><i data-lucide="map-pin"></i> China Office</h3>
+            <p><i data-lucide="building-2"></i> <span>Huafeng Xin'an Business Building, Tower A, Bao'an District, Shenzhen, Guangdong 518000, China</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <div class="flex items-center gap-2" style="margin-bottom: 1rem;">
+            <a href="index.html" style="display: flex; align-items: center;">
+              <img src="https://lumielectronics.com/wp-content/uploads/2025/09/logo-06-removebg-preview-removebg-preview.png" alt="LumiPhone" style="height: 40px; width: auto; object-fit: contain;">
+            </a>
+          </div>
+          <p style="color: #94a3b8; max-width: 300px;">
+            The premium SIP phone experience integrated directly with your smart home.
+          </p>
+        </div>
+        <div class="flex gap-8">
+          <div class="flex flex-col gap-2">
+            <strong style="margin-bottom: 0.5rem; color: white;">Product</strong>
+            <a href="index.html#features" class="footer-link">Features</a>
+            <a href="index.html#smart-home" class="footer-link">Smart Home</a>
+            <a href="documentation.html" class="footer-link">Documentation</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="https://account.lumiphone.in" class="footer-link">Create Account</a>
+          </div>
+          <div class="flex flex-col gap-2">
+            <strong style="margin-bottom: 0.5rem; color: white;">Legal</strong>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #334155; text-align: center; color: #64748b;">
+        &copy; <span id="year"></span> LumiPhone. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

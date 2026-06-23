@@ -1,0 +1,155 @@
+# LumiPhone & SIP Device Configuration Guide
+
+## 1. Creating a SIP Account
+
+Each device requires its own SIP ID. Before configuring a device, create a SIP account by following these steps:
+
+1. Visit **account.lumiphone.in**
+2. Sign in using your Gmail account.
+3. Once logged in, your access request will be sent to the administrator for approval.
+4. After the administrator approves your request, you will be able to access the dashboard.
+5. Create a new SIP account by entering:
+
+   * SIP Address
+   * Password
+
+### Sample SIP Accounts
+
+| SIP ID | Password |echo "# lumi-phone-" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/DrasisAutomation/lumi-phone-.git
+git push -u origin main
+| :----- | :------- |
+| User01 | P@ss01   |
+| User02 | P@ss02   |
+
+> **Important:** Save the SIP ID and password securely, as they will be required during device configuration.
+
+---
+
+# 2. Configuring LumiPhone Mobile App
+
+### Step 1: Install LumiPhone
+
+1. Download and install LumiPhone from the Google Play Store.
+2. Allow all required permissions.
+3. After granting permissions, you will be redirected to the registration page.
+
+### Step 2: Enter SIP Account Details
+
+| Configuration Item | Value            |
+| :----------------- | :--------------- |
+| Username           | User01           |
+| Password           | P@ss01           |
+| Domain             | sip.lumiphone.in |
+| Display Name       | User Name        |
+| Transport          | UDP              |
+
+4. Click **Login**.
+
+### Notes
+
+* No changes are required in the Advanced Settings section.
+* LumiPhone uses the default SIP port **5070** internally.
+* Therefore, when using LumiPhone, the domain should be entered as:
+
+`sip.lumiphone.in`
+
+* Do not append the port number.
+
+### For Other SIP Applications
+
+Use:
+
+`sip.lumiphone.in:5070`
+
+---
+
+# 3. Configuring Third-Party SIP Clients / SIP Devices
+
+Use the following settings:
+
+| Configuration Item  | Value            |
+| :------------------ | :--------------- |
+| Display Name        | User Name        |
+| Register Name       | User02           |
+| Username            | User02           |
+| Password            | P@ss02           |
+| SIP Server Host     | sip.lumiphone.in |
+| Port                | 5070             |
+| Outbound Proxy      | sip.lumiphone.in |
+| Outbound Proxy Port | 5070             |
+| Transport Protocol  | UDP              |
+
+### Alternative Format
+
+If the SIP client does not provide a dedicated port field, enter:
+
+`sip.lumiphone.in:5070`
+
+for both SIP Server Host and Outbound Proxy.
+
+---
+
+# 4. Ring Group Configuration
+
+## SIP Devices with a Single Call Button
+
+If the SIP device contains only a single ring/call button:
+
+1. Open the Ring Group configuration.
+2. Add the SIP address you want the device to call.
+
+### Example
+
+| SIP Destination                  |
+| :------------------------------- |
+| sip:User01@sip.lumiphone.in:5070 |
+
+When the button is pressed, the call will be routed to the configured SIP account.
+
+---
+
+## SIP Phones with Dial Pad
+
+For SIP phones that include a dial pad:
+
+1. Assign room numbers within the Ring Group configuration.
+2. Map each room number to the corresponding SIP account.
+3. Users can dial the room number directly to connect to another SIP device.
+
+### Room Mapping Example
+
+| Room Number | SIP Destination                  |
+| :---------: | :------------------------------- |
+|     101     | sip:User01@sip.lumiphone.in:5070 |
+|     102     | sip:User02@sip.lumiphone.in:5070 |
+|     103     | sip:User03@sip.lumiphone.in:5070 |
+
+### Example Call Flow
+
+| Dialed Number | Connected SIP Destination        |
+| :-----------: | :------------------------------- |
+|      101      | sip:User01@sip.lumiphone.in:5070 |
+|      102      | sip:User02@sip.lumiphone.in:5070 |
+|      103      | sip:User03@sip.lumiphone.in:5070 |
+
+Dialing room number **101** will connect the call to **sip:User01@sip.lumiphone.in:5070**.
+
+---
+
+# Summary
+
+| Item                         | Value                              |
+| :--------------------------- | :--------------------------------- |
+| SIP Domain                   | sip.lumiphone.in                   |
+| SIP Port                     | 5070                               |
+| Transport Protocol           | UDP                                |
+| LumiPhone Port Configuration | Built-in (No Port Required)        |
+| Third-Party SIP Client       | Use Port 5070                      |
+| Ring Group Format            | sip:username@sip.lumiphone.in:5070 |
+
+This completes the LumiPhone and SIP Device configuration process.

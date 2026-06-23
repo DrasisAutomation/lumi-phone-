@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation | LumiPhone</title>
+  <meta name="description" content="LumiPhone & SIP Device Configuration Guide. Learn how to create a SIP account, configure the LumiPhone mobile app, setup third-party SIP clients or devices, and configure ring groups.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Load Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Documentation Page Layout and Styles */
+    .doc-header {
+      padding-top: 9rem;
+      padding-bottom: 3rem;
+      background: linear-gradient(180deg, var(--accent-blue) 0%, rgba(255,255,255,0) 100%);
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .doc-header h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .doc-container {
+      display: flex;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 4rem auto 8rem;
+      padding: 0 2rem;
+    }
+
+    .doc-sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      align-self: flex-start;
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .doc-sidebar-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      padding-left: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .doc-sidebar-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .doc-sidebar-link {
+      display: block;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .doc-sidebar-link:hover {
+      color: var(--primary-blue);
+      background-color: var(--accent-blue);
+    }
+
+    .doc-sidebar-link.active {
+      color: var(--primary-blue);
+      background-color: var(--accent-blue);
+      border-left-color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .doc-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .doc-section {
+      padding-top: 2rem;
+      margin-bottom: 4rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 4rem;
+    }
+
+    .doc-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .doc-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      scroll-margin-top: 110px; /* Offset for sticky nav when anchor is clicked */
+    }
+
+    .doc-section h3 {
+      font-size: 1.35rem;
+      margin-top: 2.25rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .doc-section h4 {
+      font-size: 1.15rem;
+      margin-top: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .doc-section p {
+      margin-bottom: 1.25rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* Lists styling */
+    .doc-section ol, .doc-section ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .doc-section li {
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .doc-section ol li::marker {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .doc-section ul li::marker {
+      color: var(--primary-blue);
+    }
+
+    .doc-section ul ul, .doc-section ol ul {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Code Block with Copy Button styling */
+    .code-wrapper {
+      display: inline-flex;
+      align-items: center;
+      background-color: #f1f5f9;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin: 1rem 0;
+      position: relative;
+      max-width: 100%;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .code-block {
+      margin: 0;
+      border: none;
+      background: transparent;
+      color: var(--primary-blue);
+      font-family: 'Courier New', Courier, monospace;
+      padding: 0.75rem 1rem 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .copy-btn:hover {
+      color: var(--primary-blue);
+      background-color: var(--accent-blue);
+    }
+
+    /* Styled Tables */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: white;
+    }
+
+    th, td {
+      padding: 0.85rem 1.25rem;
+      text-align: left;
+      white-space: nowrap; /* Prevent table lines from breaking to next line */
+    }
+
+    th {
+      background-color: var(--accent-blue);
+      color: var(--text-primary);
+      font-weight: 600;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    /* Styled Alert Box */
+    .alert {
+      display: flex;
+      gap: 1rem;
+      background-color: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      color: #92400e;
+      border-top: 1px solid #fef3c7;
+      border-right: 1px solid #fef3c7;
+      border-bottom: 1px solid #fef3c7;
+      box-shadow: 0 2px 4px rgba(245, 158, 11, 0.05);
+    }
+
+    .alert i {
+      flex-shrink: 0;
+      color: #d97706;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+    }
+
+    .alert div {
+      line-height: 1.6;
+    }
+
+    /* Links styling in content */
+    .doc-link {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease, border-bottom 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .doc-link:hover {
+      color: var(--primary-blue-hover);
+      border-bottom-color: var(--primary-blue-hover);
+    }
+
+    @media (max-width: 992px) {
+      .doc-container {
+        flex-direction: column;
+        margin-top: 3rem;
+        gap: 3rem;
+      }
+
+      .doc-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 2rem;
+      }
+
+      .doc-sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .doc-sidebar-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Mobile font reduction rule */
+    @media (max-width: 768px) {
+      .doc-container {
+        padding: 0 1.25rem;
+        margin-top: 2rem;
+        gap: 2rem;
+      }
+
+      .doc-sidebar {
+        padding: 1rem;
+        border-radius: 12px;
+      }
+
+      .doc-sidebar-menu {
+        gap: 0.25rem;
+      }
+
+      .doc-sidebar-link {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.825rem;
+      }
+
+      .doc-header {
+        padding-top: 7rem;
+        padding-bottom: 2rem;
+      }
+
+      .doc-header h1 {
+        font-size: 1.75rem;
+      }
+
+      .doc-header p {
+        font-size: 0.95rem !important;
+      }
+
+      .doc-section {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .doc-section h2 {
+        font-size: 1.45rem;
+        margin-bottom: 1rem;
+      }
+
+      .doc-section h3 {
+        font-size: 1.15rem;
+        margin-top: 1.75rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .doc-section h4 {
+        font-size: 1.05rem;
+        margin-top: 1.5rem;
+      }
+
+      .doc-section p, 
+      .doc-section li,
+      .alert div {
+        font-size: 0.875rem; /* Reduced font size of document in mobile */
+        line-height: 1.6;
+      }
+
+      .code-wrapper {
+        margin: 0.5rem 0;
+      }
+
+      .code-block {
+        padding: 0.6rem 0.75rem 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .copy-btn {
+        padding: 0.6rem 0.75rem;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
+
+      th, td {
+        padding: 0.65rem 0.95rem;
+      }
+
+      .alert {
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+      }
+
+      .alert i {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container flex justify-between items-center relative">
+      <div class="flex items-center gap-2">
+        <a href="index.html" style="display: flex; align-items: center;">
+          <img src="https://lumielectronics.com/wp-content/uploads/2025/09/logo-06-removebg-preview-removebg-preview.png" alt="LumiPhone" style="height: 40px; width: auto; object-fit: contain;">
+        </a>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i data-lucide="menu" id="menu-icon"></i>
+      </button>
+
+      <!-- Nav Links -->
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#features" class="nav-link">Features</a>
+        <a href="index.html#smart-home" class="nav-link">Smart Home</a>
+        <a href="documentation.html" class="nav-link active" style="color: var(--primary-blue); font-weight: 600;">Documentation</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="https://account.lumiphone.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">
+          Create Account
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Doc Header -->
+  <header class="doc-header">
+    <div class="container">
+      <h1>LumiPhone & SIP Device Configuration Guide</h1>
+      <p class="text-secondary" style="font-size: 1.125rem; max-width: 600px; margin: 0 auto;">
+        Step-by-step configuration manual for LumiPhone Mobile App, third-party clients, and smart devices.
+      </p>
+    </div>
+  </header>
+
+  <!-- Doc Container -->
+  <div class="doc-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="doc-sidebar">
+      <div class="doc-sidebar-title">Sections</div>
+      <ul class="doc-sidebar-menu">
+        <li><a href="#creating-sip-account" class="doc-sidebar-link active">1. Creating a SIP Account</a></li>
+        <li><a href="#configuring-lumiphone" class="doc-sidebar-link">2. Configuring LumiPhone</a></li>
+        <li><a href="#configuring-third-party" class="doc-sidebar-link">3. Third-Party SIP Clients</a></li>
+        <li><a href="#ring-group-configuration" class="doc-sidebar-link">4. Ring Group Configuration</a></li>
+        <li><a href="#summary" class="doc-sidebar-link">Summary</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="doc-content">
+      
+      <!-- Section 1 -->
+      <section id="creating-sip-account" class="doc-section">
+        <h2>1. Creating a SIP Account</h2>
+        <p>Each device requires its own SIP ID. Before configuring a device, create a SIP account by following these steps:</p>
+        <ol>
+          <li>Visit <a href="https://account.lumiphone.in" target="_blank" rel="noopener noreferrer" class="doc-link">account.lumiphone.in</a></li>
+          <li>Sign in using your Gmail account.</li>
+          <li>Once logged in, your access request will be sent to the administrator for approval.</li>
+          <li>After the administrator approves your request, you will be able to access the dashboard.</li>
+          <li>Create a new SIP account by entering:
+            <ul>
+              <li>SIP Address</li>
+              <li>Password</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h3>Sample SIP Accounts</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>SIP ID</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>User01</td>
+                <td>P@ss01</td>
+              </tr>
+              <tr>
+                <td>User02</td>
+                <td>P@ss02</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert">
+          <i data-lucide="alert-circle"></i>
+          <div>
+            <strong>Important:</strong> Save the SIP ID and password securely, as they will be required during device configuration.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="configuring-lumiphone" class="doc-section">
+        <h2>2. Configuring LumiPhone Mobile App</h2>
+        
+        <h3>Step 1: Install LumiPhone</h3>
+        <ol>
+          <li>Download and install LumiPhone from the <a href="https://play.google.com/store/apps/details?id=com.lumiphone.mobile" target="_blank" rel="noopener noreferrer" class="doc-link">Google Play Store</a>.</li>
+          <li>Allow all required permissions.</li>
+          <li>After granting permissions, you will be redirected to the registration page.</li>
+        </ol>
+
+        <h3>Step 2: Enter SIP Account Details</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Configuration Item</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Username</td>
+                <td>User01</td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>P@ss01</td>
+              </tr>
+              <tr>
+                <td>Domain</td>
+                <td>sip.lumiphone.in</td>
+              </tr>
+              <tr>
+                <td>Display Name</td>
+                <td>User Name</td>
+              </tr>
+              <tr>
+                <td>Transport</td>
+                <td>UDP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ol start="4">
+          <li>Click <strong>Login</strong>.</li>
+        </ol>
+
+        <h3>Notes</h3>
+        <ul>
+          <li>No changes are required in the Advanced Settings section.</li>
+          <li>LumiPhone uses the default SIP port <strong>5070</strong> internally.</li>
+          <li>Therefore, when using LumiPhone, the domain should be entered as:
+            <br>
+            <div class="code-wrapper">
+              <code class="code-block">sip.lumiphone.in</code>
+              <button class="copy-btn" onclick="copyCode(this, 'sip.lumiphone.in')" aria-label="Copy to clipboard" title="Copy to clipboard">
+                <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+              </button>
+            </div>
+          </li>
+          <li>Do not append the port number.</li>
+        </ul>
+
+        <h3>For Other SIP Applications</h3>
+        <p>Use:</p>
+        <div class="code-wrapper">
+          <code class="code-block">sip.lumiphone.in:5070</code>
+          <button class="copy-btn" onclick="copyCode(this, 'sip.lumiphone.in:5070')" aria-label="Copy to clipboard" title="Copy to clipboard">
+            <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="configuring-third-party" class="doc-section">
+        <h2>3. Configuring Third-Party SIP Clients / SIP Devices</h2>
+        <p>Use the following settings:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Configuration Item</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Display Name</td>
+                <td>User Name</td>
+              </tr>
+              <tr>
+                <td>Register Name</td>
+                <td>User02</td>
+              </tr>
+              <tr>
+                <td>Username</td>
+                <td>User02</td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>P@ss02</td>
+              </tr>
+              <tr>
+                <td>SIP Server Host</td>
+                <td>sip.lumiphone.in</td>
+              </tr>
+              <tr>
+                <td>Port</td>
+                <td>5070</td>
+              </tr>
+              <tr>
+                <td>Outbound Proxy</td>
+                <td>sip.lumiphone.in</td>
+              </tr>
+              <tr>
+                <td>Outbound Proxy Port</td>
+                <td>5070</td>
+              </tr>
+              <tr>
+                <td>Transport Protocol</td>
+                <td>UDP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Alternative Format</h3>
+        <p>If the SIP client does not provide a dedicated port field, enter:</p>
+        <div class="code-wrapper">
+          <code class="code-block">sip.lumiphone.in:5070</code>
+          <button class="copy-btn" onclick="copyCode(this, 'sip.lumiphone.in:5070')" aria-label="Copy to clipboard" title="Copy to clipboard">
+            <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+        <p>for both SIP Server Host and Outbound Proxy.</p>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="ring-group-configuration" class="doc-section">
+        <h2>4. Ring Group Configuration</h2>
+        
+        <h3>SIP Devices with a Single Call Button</h3>
+        <p>If the SIP device contains only a single ring/call button:</p>
+        <ol>
+          <li>Open the Ring Group configuration.</li>
+          <li>Add the SIP address you want the device to call.</li>
+        </ol>
+
+        <h3>Example</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>SIP Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sip:User01@sip.lumiphone.in:5070</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>When the button is pressed, the call will be routed to the configured SIP account.</p>
+
+        <hr style="margin: 2.5rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+        <h3>SIP Phones with Dial Pad</h3>
+        <p>For SIP phones that include a dial pad:</p>
+        <ol>
+          <li>Assign room numbers within the Ring Group configuration.</li>
+          <li>Map each room number to the corresponding SIP account.</li>
+          <li>Users can dial the room number directly to connect to another SIP device.</li>
+        </ol>
+
+        <h3>Room Mapping Example</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: center;">Room Number</th>
+                <th>SIP Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">101</td>
+                <td>sip:User01@sip.lumiphone.in:5070</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">102</td>
+                <td>sip:User02@sip.lumiphone.in:5070</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">103</td>
+                <td>sip:User03@sip.lumiphone.in:5070</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Example Call Flow</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: center;">Dialed Number</th>
+                <th>Connected SIP Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">101</td>
+                <td>sip:User01@sip.lumiphone.in:5070</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">102</td>
+                <td>sip:User02@sip.lumiphone.in:5070</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">103</td>
+                <td>sip:User03@sip.lumiphone.in:5070</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Dialing room number <strong>101</strong> will connect the call to <strong>sip:User01@sip.lumiphone.in:5070</strong>.</p>
+      </section>
+
+      <!-- Summary Section -->
+      <section id="summary" class="doc-section">
+        <h2>Summary</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SIP Domain</td>
+                <td>sip.lumiphone.in</td>
+              </tr>
+              <tr>
+                <td>SIP Port</td>
+                <td>5070</td>
+              </tr>
+              <tr>
+                <td>Transport Protocol</td>
+                <td>UDP</td>
+              </tr>
+              <tr>
+                <td>LumiPhone Port Configuration</td>
+                <td>Built-in (No Port Required)</td>
+              </tr>
+              <tr>
+                <td>Third-Party SIP Client</td>
+                <td>Use Port 5070</td>
+              </tr>
+              <tr>
+                <td>Ring Group Format</td>
+                <td>sip:username@sip.lumiphone.in:5070</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>This completes the LumiPhone and SIP Device configuration process.</p>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <div class="flex items-center gap-2" style="margin-bottom: 1rem;">
+            <a href="index.html" style="display: flex; align-items: center;">
+              <img src="https://lumielectronics.com/wp-content/uploads/2025/09/logo-06-removebg-preview-removebg-preview.png" alt="LumiPhone" style="height: 40px; width: auto; object-fit: contain;">
+            </a>
+          </div>
+          <p style="color: #94a3b8; max-width: 300px;">
+            The premium SIP phone experience integrated directly with your smart home.
+          </p>
+        </div>
+        <div class="flex gap-8">
+          <div class="flex flex-col gap-2">
+            <strong style="margin-bottom: 0.5rem; color: white;">Product</strong>
+            <a href="index.html#features" class="footer-link">Features</a>
+            <a href="index.html#smart-home" class="footer-link">Smart Home</a>
+            <a href="documentation.html" class="footer-link">Documentation</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="https://account.lumiphone.in" class="footer-link">Create Account</a>
+          </div>
+          <div class="flex flex-col gap-2">
+            <strong style="margin-bottom: 0.5rem; color: white;">Legal</strong>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #334155; text-align: center; color: #64748b;">
+        &copy; <span id="year"></span> LumiPhone. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // Copy Code to Clipboard Function
+    function copyCode(button, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const iconElement = button.querySelector('i');
+        iconElement.setAttribute('data-lucide', 'check');
+        iconElement.style.color = '#22c55e';
+        lucide.createIcons();
+        button.style.backgroundColor = '#dcfce7';
+        
+        setTimeout(() => {
+          iconElement.setAttribute('data-lucide', 'copy');
+          iconElement.style.color = '';
+          button.style.backgroundColor = '';
+          lucide.createIcons();
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+
+    // Active Sidebar Link Highlighting on Scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.doc-section');
+      const sidebarLinks = document.querySelectorAll('.doc-sidebar-link');
+
+      const options = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            sidebarLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, options);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>

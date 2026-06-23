@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LumiPhone | Next-Gen SIP Phone & Smart Home</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Load Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container flex justify-between items-center relative">
+      <div class="flex items-center gap-2">
+        <a href="#" style="display: flex; align-items: center;">
+          <img src="https://lumielectronics.com/wp-content/uploads/2025/09/logo-06-removebg-preview-removebg-preview.png" alt="LumiPhone" style="height: 40px; width: auto; object-fit: contain;">
+        </a>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i data-lucide="menu" id="menu-icon"></i>
+      </button>
+
+      <!-- Nav Links -->
+      <div class="nav-links" id="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#smart-home" class="nav-link">Smart Home</a>
+        <a href="documentation.html" class="nav-link">Documentation</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="https://account.lumiphone.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">
+          Create Account
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-gradient"></div>
+    <div class="container">
+      <div class="flex items-center gap-12" style="flex-wrap: wrap;">
+        
+        <div class="w-full animate-fade-in-up" style="flex: 1; min-width: 300px;">
+          <h1 style="margin-bottom: 1.5rem;">
+            The Next Generation <br />
+            <span class="text-gradient">SIP Phone Experience</span>
+          </h1>
+          <p class="text-secondary" style="font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 500px;">
+            Crystal clear communication meets seamless smart home integration. Control your world from a single, beautifully designed application.
+          </p>
+          <div class="flex gap-4 btn-group" style="flex-wrap: wrap;">
+            <a href="https://account.lumiphone.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">
+              Get Started <i data-lucide="arrow-right" style="width: 20px; height: 20px; margin-left: 8px;"></i>
+            </a>
+            <a href="#features" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.125rem;">
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full animate-fade-in-up delay-200" style="flex: 1; min-width: 300px;">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div style="background: #f8fafc; border-radius: 16px; padding: 1.5rem; min-height: 400px; height: auto; display: flex; flex-direction: column; gap: 1rem;">
+               <div class="flex justify-between items-center" style="margin-bottom: 1rem;">
+                  <h3 style="font-size: 1.25rem;">Recent Calls <i data-lucide="phone-call" class="text-secondary" style="width: 20px; height: 20px;"></i></h3>
+                  
+               </div>
+               
+               <div class="flex items-center gap-4" style="background: white; padding: 1rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent-blue); display: flex; align-items: center; justify-content: center; color: var(--primary-blue);">
+                   <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
+                 </div>
+                 <div style="flex: 1;">
+                   <div style="font-weight: 600;">Contact 1</div>
+                   <div class="text-secondary" style="font-size: 0.875rem;">Mobile • 2 mins ago</div>
+                 </div>
+               </div>
+
+               <div class="flex items-center gap-4" style="background: white; padding: 1rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent-blue); display: flex; align-items: center; justify-content: center; color: var(--primary-blue);">
+                   <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
+                 </div>
+                 <div style="flex: 1;">
+                   <div style="font-weight: 600;">Contact 2</div>
+                   <div class="text-secondary" style="font-size: 0.875rem;">Mobile • 1 hour ago</div>
+                 </div>
+               </div>
+
+               <div class="flex items-center gap-4" style="background: white; padding: 1rem; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                 <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent-blue); display: flex; align-items: center; justify-content: center; color: var(--primary-blue);">
+                   <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
+                 </div>
+                 <div style="flex: 1;">
+                   <div style="font-weight: 600;">Contact 3</div>
+                   <div class="text-secondary" style="font-size: 0.875rem;">Home • Yesterday</div>
+                 </div>
+               </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Compatibility Section -->
+  <section class="compatibility-section" style="padding: 4rem 0; border-bottom: 1px solid var(--border-color); background: var(--bg-color);">
+    <div class="container" style="text-align: center;">
+      <p class="text-secondary" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem; margin-bottom: 2rem;">Seamlessly compatible with leading hardware</p>
+    </div>
+    <div class="logo-ticker-container">
+      <div class="logo-ticker">
+        <img src="https://www.itplus.co.nz/wp-content/uploads/2025/04/Akuvox-Logo_Thumbnail_2.png" alt="Akuvox" class="brand-logo" title="Akuvox">
+        <img src="https://cdn.freelogovectors.net/wp-content/uploads/2022/03/grandstream-logo_freelogovectors.net_.png" alt="Grandstream" class="brand-logo" title="Grandstream">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.ZdkoQNZ8DoqyELlnPl38SQHaEK?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ubiquiti" class="brand-logo" title="Ubiquiti">
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/fermax-logo-png-transparent.png" alt="Fermax" class="brand-logo" title="Fermax">
+        <img src="https://cdn.vectorstock.com/i/preview-1x/34/61/samsung-mobile-logo-vector-33133461.jpg" alt="Samsung" class="brand-logo" title="Samsung">
+        <img src="https://networkcamerastore.com/cdn/shop/files/Hikvision_252520Logo__60980.1659469363.1280.1280.png?v=1704292363&width=1280" alt="Hikvision" class="brand-logo" title="Hikvision">
+        <img src="https://com2.com.au/wp-content/uploads/2025/02/Fanvil-Logo-PNG-e1741049548342.png" alt="Fanvil" class="brand-logo" title="Fanvil">
+        <img src="https://logosdown.com/wp-content/uploads/2023/08/cisco-logo-0-2048x2048-1-1536x1536.png" alt="Cisco" class="brand-logo" title="Cisco">
+        <img src="https://campaign-image.com/zohocampaigns/777272000000255421_zc_v10_1628173730787_yealink_logo.png" alt="Yealink" class="brand-logo" title="Yealink">
+        <img src="https://www.nicepng.com/png/detail/241-2412478_alcatel-lucent-logo-logo-alcatel-lucent-png.png" alt="Alcatel-Lucent" class="brand-logo" title="Alcatel-Lucent">
+        <img src="https://www.audiocodes.com/media/2gnlotaw/audiocodes-logo-square-transparent.png?noformat=1" alt="AudioCodes" class="brand-logo" title="AudioCodes">
+        <img src="https://i.ebayimg.com/images/g/mRIAAeSw2vVn3Cp1/s-l960.jpg" alt="Snom" class="brand-logo" title="Snom">
+        <img src="https://www.ritelephone.com/wp-content/uploads/2021/08/Htek-logo.jpeg" alt="Htek" class="brand-logo" title="Htek">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.BIL2HhKvkCOrmhiHXoTMFQHaEK?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Gigaset" class="brand-logo" title="Gigaset">
+        <img src="https://india.wcs.global/wp-content/uploads/2022/10/Poly-Logo.png" alt="Poly" class="brand-logo" title="Poly">
+      </div>
+      <div class="logo-ticker" aria-hidden="true">
+        <img src="https://www.itplus.co.nz/wp-content/uploads/2025/04/Akuvox-Logo_Thumbnail_2.png" alt="Akuvox" class="brand-logo" title="Akuvox">
+        <img src="https://cdn.freelogovectors.net/wp-content/uploads/2022/03/grandstream-logo_freelogovectors.net_.png" alt="Grandstream" class="brand-logo" title="Grandstream">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.ZdkoQNZ8DoqyELlnPl38SQHaEK?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ubiquiti" class="brand-logo" title="Ubiquiti">
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/fermax-logo-png-transparent.png" alt="Fermax" class="brand-logo" title="Fermax">
+        <img src="https://cdn.vectorstock.com/i/preview-1x/34/61/samsung-mobile-logo-vector-33133461.jpg" alt="Samsung" class="brand-logo" title="Samsung">
+        <img src="https://networkcamerastore.com/cdn/shop/files/Hikvision_252520Logo__60980.1659469363.1280.1280.png?v=1704292363&width=1280" alt="Hikvision" class="brand-logo" title="Hikvision">
+        <img src="https://com2.com.au/wp-content/uploads/2025/02/Fanvil-Logo-PNG-e1741049548342.png" alt="Fanvil" class="brand-logo" title="Fanvil">
+        <img src="https://logosdown.com/wp-content/uploads/2023/08/cisco-logo-0-2048x2048-1-1536x1536.png" alt="Cisco" class="brand-logo" title="Cisco">
+        <img src="https://campaign-image.com/zohocampaigns/777272000000255421_zc_v10_1628173730787_yealink_logo.png" alt="Yealink" class="brand-logo" title="Yealink">
+        <img src="https://www.nicepng.com/png/detail/241-2412478_alcatel-lucent-logo-logo-alcatel-lucent-png.png" alt="Alcatel-Lucent" class="brand-logo" title="Alcatel-Lucent">
+        <img src="https://www.audiocodes.com/media/2gnlotaw/audiocodes-logo-square-transparent.png?noformat=1" alt="AudioCodes" class="brand-logo" title="AudioCodes">
+        <img src="https://i.ebayimg.com/images/g/mRIAAeSw2vVn3Cp1/s-l960.jpg" alt="Snom" class="brand-logo" title="Snom">
+        <img src="https://www.ritelephone.com/wp-content/uploads/2021/08/Htek-logo.jpeg" alt="Htek" class="brand-logo" title="Htek">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.BIL2HhKvkCOrmhiHXoTMFQHaEK?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Gigaset" class="brand-logo" title="Gigaset">
+        <img src="https://india.wcs.global/wp-content/uploads/2022/10/Poly-Logo.png" alt="Poly" class="brand-logo" title="Poly">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section" style="background: #f8fafc;">
+    <div class="container">
+      <div class="section-title animate-fade-in-up">
+        <h2>Why Choose LumiPhone?</h2>
+        <p class="text-secondary" style="font-size: 1.125rem; margin-top: 1rem; max-width: 600px; margin: 1rem auto 0;">
+          Built for modern teams and smart homes, offering reliability and crystal clear audio.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 animate-fade-in-up delay-100">
+        
+        <div class="card">
+          <div class="card-icon"><i data-lucide="globe"></i></div>
+          <h3 style="margin-bottom: 0.5rem;">Global Connectivity</h3>
+          <p class="text-secondary">Make high-quality SIP calls anywhere in the world with minimal latency.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i data-lucide="shield-check"></i></div>
+          <h3 style="margin-bottom: 0.5rem;">Enterprise Security</h3>
+          <p class="text-secondary">End-to-end encryption ensures your conversations remain completely private.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i data-lucide="smartphone"></i></div>
+          <h3 style="margin-bottom: 0.5rem;">Cross-Platform</h3>
+          <p class="text-secondary">Available on iOS, Android, and Desktop. Your account syncs seamlessly.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Home Section -->
+  <section id="smart-home" class="section">
+    <div class="container">
+      <div class="flex items-center gap-12" style="flex-wrap: wrap;">
+        
+        <div class="w-full animate-fade-in-up" style="flex: 1; min-width: 300px; order: 2;">
+          <h2 style="margin-bottom: 1.5rem;">
+            Integrated with <br />
+            <span class="text-gradient">Lumi Processor</span>
+          </h2>
+          <p class="text-secondary" style="font-size: 1.125rem; margin-bottom: 2rem;">
+            LumiPhone isn't just a SIP app. It's the remote control for your environment. Control your smart locks, lighting, and power switches directly from the call screen.
+          </p>
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <div style="color: var(--primary-blue);"><i data-lucide="lock"></i></div>
+              <div><strong style="display: block;">Smart Locks</strong> Secure your doors with a single tap.</div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div style="color: var(--primary-blue);"><i data-lucide="lightbulb"></i></div>
+              <div><strong style="display: block;">Lighting Control</strong> Adjust ambiance effortlessly.</div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div style="color: var(--primary-blue);"><i data-lucide="power"></i></div>
+              <div><strong style="display: block;">Power Switches</strong> Manage energy usage remotely.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full animate-fade-in-up delay-200" style="flex: 1; min-width: 300px; order: 1;">
+          <div class="mockup-container" style="background: #f8fafc;">
+            <h3 style="margin-bottom: 1.5rem;">Lumi Dashboard</h3>
+            
+            <div class="flex flex-col gap-4">
+              
+              <div class="card" style="padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <div class="flex items-center gap-4">
+                  <div class="card-icon" id="icon-light" style="margin-bottom: 0; width: 40px; height: 40px; background: var(--accent-blue); color: var(--primary-blue);">
+                    <i data-lucide="lightbulb" style="width: 20px; height: 20px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-weight: 600;">Living Room Lights</div>
+                    <div class="text-secondary" id="text-light" style="font-size: 0.875rem;">On</div>
+                  </div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-light" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="card" style="padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <div class="flex items-center gap-4">
+                  <div class="card-icon" id="icon-lock" style="margin-bottom: 0; width: 40px; height: 40px; background: #fecaca; color: #ef4444;">
+                    <i data-lucide="lock" style="width: 20px; height: 20px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-weight: 600;">Front Door Lock</div>
+                    <div class="text-secondary" id="text-lock" style="font-size: 0.875rem;">Locked</div>
+                  </div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-lock" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="card" style="padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <div class="flex items-center gap-4">
+                  <div class="card-icon" id="icon-power" style="margin-bottom: 0; width: 40px; height: 40px; background: #dcfce7; color: #22c55e;">
+                    <i data-lucide="power" style="width: 20px; height: 20px;"></i>
+                  </div>
+                  <div>
+                    <div style="font-weight: 600;">Main Switch</div>
+                    <div class="text-secondary" id="text-power" style="font-size: 0.875rem;">Active</div>
+                  </div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-power" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Visitor Management Section -->
+  <section id="visitor-management" class="section">
+    <div class="container">
+      <div class="flex items-center gap-12" style="flex-wrap: wrap;">
+
+        <!-- Text side -->
+        <div class="w-full animate-fade-in-up" style="flex: 1; min-width: 300px;">
+          <h2 style="margin-bottom: 1.5rem;">
+            Seamless <br />
+            <span class="text-gradient">Visitor Management</span>
+          </h2>
+          <p class="text-secondary" style="font-size: 1.125rem; margin-bottom: 2rem;">
+            Grant secure and temporary access to your home or office. Generate one-time passwords (OTPs) and share them instantly with your guests, delivery agents, or service personnel without ever compromising your master code.
+          </p>
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <div style="color: var(--primary-blue);"><i data-lucide="clock"></i></div>
+              <div><strong style="display: block;">Time-Bound Access</strong> Set strict expiry times for every generated OTP.</div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div style="color: var(--primary-blue);"><i data-lucide="smartphone"></i></div>
+              <div><strong style="display: block;">One-Click Sharing</strong> Send access codes instantly via SMS or WhatsApp.</div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div style="color: var(--primary-blue);"><i data-lucide="history"></i></div>
+              <div><strong style="display: block;">Real-Time Logs</strong> Receive instant notifications and track exactly who entered.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mockup side -->
+        <div class="w-full animate-fade-in-up delay-200" style="flex: 1; min-width: 300px;">
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div style="background: white; border-radius: 16px; padding: 2rem; min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent-blue); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--primary-blue);">
+                <i data-lucide="shield-check" style="width: 40px; height: 40px;"></i>
+              </div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Access Pass</h3>
+              <p class="text-secondary" style="margin-bottom: 2rem;">Valid for 24 hours</p>
+              
+              <div style="background: var(--bg-color); padding: 1.5rem; border-radius: 12px; width: 100%; letter-spacing: 0.25em; font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem; border: 2px dashed #cbd5e1;">
+                8429
+              </div>
+              
+              <button class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i data-lucide="share-2" style="width: 20px; height: 20px;"></i> Share OTP
+              </button>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <div class="flex items-center gap-2" style="margin-bottom: 1rem;">
+            <a href="#" style="display: flex; align-items: center;">
+              <img src="https://lumielectronics.com/wp-content/uploads/2025/09/logo-06-removebg-preview-removebg-preview.png" alt="LumiPhone" style="height: 40px; width: auto; object-fit: contain;">
+            </a>
+          </div>
+          <p style="color: #94a3b8; max-width: 300px;">
+            The premium SIP phone experience integrated directly with your smart home.
+          </p>
+        </div>
+        <div class="flex gap-8">
+          <div class="flex flex-col gap-2">
+            <strong style="margin-bottom: 0.5rem; color: white;">Product</strong>
+            <a href="#features" class="footer-link">Features</a>
+            <a href="#smart-home" class="footer-link">Smart Home</a>
+            <a href="documentation.html" class="footer-link">Documentation</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="https://account.lumiphone.in" class="footer-link">Create Account</a>
+          </div>
+          <div class="flex flex-col gap-2">
+            <strong style="margin-bottom: 0.5rem; color: white;">Legal</strong>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #334155; text-align: center; color: #64748b;">
+        &copy; <span id="year"></span> LumiPhone. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
